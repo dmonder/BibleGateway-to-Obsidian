@@ -17,6 +17,7 @@ This is not affiliated to, or approved by, BibleGateway.com. In my understanding
 ## About
 
 This script is inspired by [jgclark's BibleGateway-to-Markdown](https://github.com/jgclark/BibleGateway-to-Markdown) and exports for use in [Obsidian](https://obsidian.md/). It accompanies a [Bible Study in Obsidian Kit](https://forum.obsidian.md/t/bible-study-in-obsidian-kit-including-the-bible-in-markdown/12503?u=selfire) that gets you hands-on with using Scripture in your personal notes.
+This script is inspired by [jgclark's BibleGateway-to-Markdown](https://github.com/jgclark/BibleGateway-to-Markdown) and exports for use in [Obsidian](https://obsidian.md/). It accompanies a [Bible Study in Obsidian Kit](https://forum.obsidian.md/t/bible-study-in-obsidian-kit-including-the-bible-in-markdown/12503?u=selfire) that gets you hands-on with using Scripture in your personal notes.
 
 What the script does is fetch the text from [Bible Gateway](https://www.biblegateway.com/) and save it as a formatted markdown file. Each chapter is saved as one file and navigation between files as well as a book-file is automatically created. All the chapter files of a book are saved in its numbered folder.
 
@@ -30,11 +31,16 @@ You can find supported languages in the [locales](https://github.com/selfire1/Bi
 Requirements:
 
 - Python 3.9+
+Requirements:
+
+- Python 3.9+
 
 ## Usage
 
 ### 1. Run from this directory
+### 1. Run from this directory
 
+Open your terminal application, and navigate to this directory with commands like the following:
 Open your terminal application, and navigate to this directory with commands like the following:
 
 - `pwd` Show your current directory
@@ -45,7 +51,9 @@ Open your terminal application, and navigate to this directory with commands lik
 ### 2. Run the script
 
 Once you have navigated to the directory, run `python bg2obs.py`. A folder named like `The Bible (WEB)` with subfolders like `Genesis`, `Exodus` and so on will be created in the current folder.
+Once you have navigated to the directory, run `python bg2obs.py`. A folder named like `The Bible (WEB)` with subfolders like `Genesis`, `Exodus` and so on will be created in the current folder.
 
+Several options are available via command-line switches. Type `python bg2obs.py -h` at any time to display them.
 Several options are available via command-line switches. Type `python bg2obs.py -h` at any time to display them.
 
 #### Script option summary
@@ -58,10 +66,9 @@ Several options are available via command-line switches. Type `python bg2obs.py 
 | `-c`           | Include _inline_ navigation for the [breadcrumbs](https://github.com/SkepticMystic/breadcrumbs) plugin (e.g. 'up', 'next','previous') (default is Off) |
 | `-e`           | Include editorial headers (default is Off)                                                                                                             |
 | `-i`           | Show progress information while the script is running (i.e. "verbose" mode) (default is Off)                                                           |
-| `-l`           | Specify the locale that should be used to name the books of the Bible (default is English). See [supported locales](https://github.com/selfire1/       |
+| `-l`           | Specify the locale that should be used to name the books of the Bible (default is English). See [supported locales](https://github.com/selfire1/BibleGateway-to-Obsidian/tree/main/locales).                                                             |
 | `-s`           | If available, use shorter book abbreviations                                                                                                           |
 | `-y`           | Include navigation for the breadcrumbs plugin in the _frontmatter_ (YAML) (default is Off)                                                             |
-BibleGateway-to-Obsidian/tree/main/locales).                                                             |
 | `--abbr`       | Use medium-length abbreviations for filenames (booksAbbr.txt)                                                                                          |
 | `--book`       | Limit download to a single book (use locale spelling or abbreviation)                                                                                  |
 | `--chapter`    | Limit download to a single chapter (requires --book)                                                                                                   |
@@ -83,6 +90,7 @@ BibleGateway-to-Obsidian/tree/main/locales).                                    
 
 Some cross references are sometimes still included, run `\<crossref intro.*crossref\>` to delete.
 
+**There you go!** Now, just move the generated Bible folder into your Obsidian vault. You can use the provided Bible index file as an overview file.
 **There you go!** Now, just move the generated Bible folder into your Obsidian vault. You can use the provided Bible index file as an overview file.
 
 ## Translations
