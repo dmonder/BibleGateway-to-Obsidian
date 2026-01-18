@@ -1,6 +1,8 @@
 .DS_Store
 Previous_versions/
 bg2md.rb
+__pycache__/
+*.pyc
 Scripture (***)/
 
 Die Bibel.md
@@ -17,3 +19,4 @@ La Bible (***)/
 
 Biblia.md
 Biblia (***)/
+locales/**/bsb.txt

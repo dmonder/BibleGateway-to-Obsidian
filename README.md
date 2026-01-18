@@ -16,7 +16,7 @@ This is not affiliated to, or approved by, BibleGateway.com. In my understanding
 
 ## About
 
-This script adapts [jgclark's BibleGateway-to-Markdown](https://github.com/jgclark/BibleGateway-to-Markdown) script to export for use in [Obsidian](https://obsidian.md/). It accompanies a [Bible Study in Obsidian Kit](https://forum.obsidian.md/t/bible-study-in-obsidian-kit-including-the-bible-in-markdown/12503?u=selfire) that gets you hands-on with using Scripture in your personal notes.
+This script is inspired by [jgclark's BibleGateway-to-Markdown](https://github.com/jgclark/BibleGateway-to-Markdown) and exports for use in [Obsidian](https://obsidian.md/). It accompanies a [Bible Study in Obsidian Kit](https://forum.obsidian.md/t/bible-study-in-obsidian-kit-including-the-bible-in-markdown/12503?u=selfire) that gets you hands-on with using Scripture in your personal notes.
 
 What the script does is fetch the text from [Bible Gateway](https://www.biblegateway.com/) and save it as a formatted markdown file. Each chapter is saved as one file and navigation between files as well as a book-file is automatically created. All the chapter files of a book are saved in its numbered folder.
 
@@ -27,26 +27,15 @@ You can find supported languages in the [locales](https://github.com/selfire1/Bi
 
 ## Installation
 
-Here are the tools we are going to use:
+Requirements:
 
-- Our command line (Terminal)
-- On Windows you might need to [install perl](https://www.perl.org/get.html).
-
-## Setting ruby up
-
-### Updating
-
-In order to run the scripts, we will need to install ruby. Ruby comes pre-installed on macOS, but if you run into issues [update to the latest version](https://stackify.com/install-ruby-on-your-mac-everything-you-need-to-get-going/).
-
-### Downloading BibleGateway-to-Markdown.rb
-
-Follow the instructions to download and set up [jgclark's BibleGateway-to-Markdown](https://github.com/jgclark/BibleGateway-to-Markdown).
+- Python 3.9+
 
 ## Usage
 
-### 1. Install scripts
+### 1. Run from this directory
 
-Place both scripts (`bg2md.rb` and `bg2obs.sh`) in the same directory, open your terminal application, and navigate to that directory with commands like the following:
+Open your terminal application, and navigate to this directory with commands like the following:
 
 - `pwd` Show your current directory
 - `ls` List all contents in the current directory
@@ -55,11 +44,9 @@ Place both scripts (`bg2md.rb` and `bg2obs.sh`) in the same directory, open your
 
 ### 2. Run the script
 
-Once you have navigated to the directory containing both scripts, run `bash bg2obs.sh`. This will run the bash script. A folder called `Scripture` with subfolders like `Genesis`, `Exodus` and so on will be created in the current folder.
+Once you have navigated to the directory, run `python bg2obs.py`. A folder named like `The Bible (WEB)` with subfolders like `Genesis`, `Exodus` and so on will be created in the current folder.
 
-**Note**: This script uses the clipboard to manipulate the text. You might find that copying and pasting while running the script does not work as expected.
-
-Several options are available via command-line switches. Type `bash bg2obs.sh -h` at any time to display them.
+Several options are available via command-line switches. Type `python bg2obs.py -h` at any time to display them.
 
 #### Script option summary
 
@@ -79,16 +66,16 @@ Several options are available via command-line switches. Type `bash bg2obs.sh -h
 
 | Command                         | Description                                                                                |
 | ------------------------------- | ------------------------------------------------------------------------------------------ |
-| `bash bg2obs.sh -i -v NET`      | Download a copy of the NET Bible with no other options.                                    |
-| `bash bg2obs.sh -b`             | Download a copy of the WEB Bible (default) with Jesus' words in bold.                      |
-| `bash bg2obs.sh -y`             | Download a copy of the WEB Bible (default) with breadcrumbs navigation in the frontmatter. |
-| `bash bg2obs.sh -v NET -beacyi` | Download a copy of the NET Bible with all options enabled.                                 |
+| `python bg2obs.py -i -v NET`      | Download a copy of the NET Bible with no other options.                                    |
+| `python bg2obs.py -b`             | Download a copy of the WEB Bible (default) with Jesus' words in bold.                      |
+| `python bg2obs.py -y`             | Download a copy of the WEB Bible (default) with breadcrumbs navigation in the frontmatter. |
+| `python bg2obs.py -v NET -beacyi` | Download a copy of the NET Bible with all options enabled.                                 |
 
 ### 3. Format the text in a text editor
 
 Some cross references are sometimes still included, run `\<crossref intro.*crossref\>` to delete.
 
-**There you go!** Now, just move the "Scripture" folder into your Obsidian vault. You can use the provided `The Bible.md` file as an overview file.
+**There you go!** Now, just move the generated Bible folder into your Obsidian vault. You can use the provided Bible index file as an overview file.
 
 ## Translations
 
@@ -103,20 +90,6 @@ Below are common issues when using the script. If this still doesn't solve your 
 - The [Help and Support thread](https://forum.obsidian.md/t/bible-study-kit-in-obsidian-scripts-help-and-support/31069/2) for this script in the Obsidian Forums. (I am somewhat less active there, but plenty of folks are happy to help out!)
 - Create an [issue](https://github.com/selfire1/BibleGateway-to-Obsidian/issues) on GitHub. This is my preferred way to keep track of what needs fixing.
 - Also, feel free to [get in touch](https://joschua.io/about) and I will attempt to fix it!
-
-### Problems loading ruby/gems
-
-An error like this indicates ruby or the gems aren't installed properly: `in require: cannot load such file -- colorize (LoadError)`
-
-**Solutions**
-
-- Have a look at the [bg2md installation guide](https://github.com/jgclark/BibleGateway-to-Markdown/tree/7aaa4cdaba5d8ebb2e7e3fa5ace7de96c1534846#installation) to make sure you installed ruby and gems properly.
-- Run the gem install with admin privileges: `sudo gem install colorize optparse clipboard`.
-- Re-install ruby and gems.
-
-### The first chapter of the book repeats
-
-☑️ Use [version 1.4.3](https://github.com/jgclark/BibleGateway-to-Markdown/tree/d693e85bba94122a2f46bec3ff9487333bccfdbf) of jgclark's script instead of the newest version.
 
 ### "Language not found: error
 Make sure to download the whole repository. See [issue 44](https://github.com/selfire1/BibleGateway-to-Obsidian/issues/44) for more information.
